@@ -20,4 +20,14 @@ const total = document.querySelector(".total");
 button.addEventListener("click", function () {
   mixList.classList.remove("hide");
   button.classList.add("hide");
+  mixInfo(epicMix);
 });
+
+total.innerText = `${epicMix.length} great songs.`;
+const mixInfo = function (mix){
+  epicMix.forEach (function(song, index){
+    let listItem = document.createElement("li");
+    listItem.innerHTML = `<span class="song-number">#${index + 1}</span> ${song}`
+    mixList.append(listItem);
+  });
+};
